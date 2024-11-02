@@ -1,8 +1,9 @@
 #include "Game.h"
 #include "TextureManager.h"
+#include "GameObject.h"
 
-SDL_Texture* playerTexture;
-SDL_Rect sourceRect, destinationRect;
+GameObject* player;
+GameObject* enemy;
 
 Game::Game()
 {}
@@ -56,7 +57,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 	
-	playerTexture = TextureManager::LoadTexture("../assets/Unarmed_Idle_full.png", renderer);	
+	player = new GameObject("../assets/placeholder1.png", renderer, 0, 0);	
+	enemy = new GameObject("../assets/placeholder2.png", renderer, 10, 10);
 }
 
 void Game::init(const GameSettings& settings)
@@ -79,22 +81,22 @@ void Game::handleEvents()
 
 void Game::update()
 {
-	destinationRect.h = 64;
-	destinationRect.w = 64;
+	player->Update();
+	enemy->Update();
 }
 
 void Game::render()
 {
 	SDL_RenderClear(renderer);
 	//this is where we add stuff
-	SDL_RenderCopy(renderer, playerTexture, NULL, &destinationRect);
-
+	player->Render();
+	enemy->Render();
+	//
 	SDL_RenderPresent(renderer);
 }
 
 void Game::clean()
 {
-	SDL_DestroyTexture(playerTexture);
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	IMG_Quit();
