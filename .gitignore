@@ -1,0 +1,69 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore build files
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.out
+
+# Ignore directories
+/build/
+/bin/
+/dist/
+/.venv/
+/node_modules/
+/.vscode/
+/.idea/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.~lock.*
+*.pid
+
+# Ignore compiled bytecode for Python
+__pycache__/
+*.py[cod]
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore Git metadata files
+.git/
+.gitignore
+
+# Ignore IDE settings (specific to CLion and Visual Studio Code)
+.idea/
+.vscode/
+*.iml
+
+# Ignore SDL2 libraries or any external library files
+/lib/
+*.dll
+*.dylib
+*.so
+
+# Ignore Xubuntu specific Vim swap files
+*.swp
+*.swo
+
+# Ignore version-controlled VHDL files if not needed in the repository
+*.vhdl
+
+# Optional: Ignore temporary files for C++
+*.gch
+*.pch
+
+# Optional: Ignore any compiled binaries
+*.bin
+*.elf
